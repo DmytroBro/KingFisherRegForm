@@ -24,18 +24,22 @@ public class registerSteps {
     public void user_is_on_the_demo_sign_in_page()  {
 
         //Navigate to website
+        driver.navigate().to("http://automationpractice.com/index.php");
 
         //Click sign in button
-
+        driver.findElement(By.className("login")).click();
     }
 
     @When("user enters {word} and creates account")
-    public void user_enters_email_address_and_creates_account() throws InterruptedException {
+    public void user_enters_email_address_and_creates_account(String emailAddress) throws InterruptedException {
 
         //Fill out email address
+        driver.findElement(By.id("email_create")).sendKeys(emailAddress);
 
 
         //Click register button
+//        driver.findElement(By.className("SubmitCreate")).click();
+        driver.findElement(By.xpath("//*[@id='SubmitCreate']")).click();
 
 
         //Wait for next page to be present before proceeding
